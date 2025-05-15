@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { Lock, Cpu, BrainCircuit, Sparkles } from 'lucide-react';
+import { Lock, Cpu, BrainCircuit as Circuit, Sparkles } from 'lucide-react';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -102,63 +102,13 @@ const Login: React.FC = () => {
         className="bg-gradient-to-br from-gray-900/80 to-black/80 p-8 rounded-xl border border-tech-cyan/30 shadow-xl backdrop-blur-md relative z-10 w-full max-w-md mx-4"
       >
         <div className="flex flex-col items-center mb-8">
-          <motion.div 
-            className="relative"
-            animate={{ 
-              scale: [1, 1.1, 1],
-              rotate: [0, 5, -5, 0]
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          >
-            <motion.div 
-              className="absolute inset-0"
-              animate={{ opacity: [0.3, 0.7, 0.3] }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              <Cpu className="w-12 h-12 text-tech-cyan" />
-            </motion.div>
-            <motion.div
-              animate={{ 
-                rotate: [0, 360],
-                scale: [1, 1.1, 1]
-              }}
-              transition={{
-                rotate: {
-                  duration: 10,
-                  repeat: Infinity,
-                  ease: "linear"
-                },
-                scale: {
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }
-              }}
-            >
-              <BrainCircuit className="w-12 h-12 text-tech-purple" />
-            </motion.div>
-            <motion.div
-              animate={{ 
-                scale: [1, 1.2, 1],
-                opacity: [0.5, 1, 0.5]
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              <Sparkles className="absolute -right-4 -top-2 w-6 h-6 text-tech-gold" />
-            </motion.div>
-          </motion.div>
+          <div className="relative">
+            <div className="absolute inset-0 animate-pulse">
+              <Cpu className="w-12 h-12 text-tech-cyan opacity-50" />
+            </div>
+            <Circuit className="w-12 h-12 text-tech-purple" />
+            <Sparkles className="absolute -right-4 -top-2 w-6 h-6 text-tech-gold" />
+          </div>
           <h2 className="text-2xl font-bold text-center text-white mt-4">
             Central de Agentes IA
           </h2>
