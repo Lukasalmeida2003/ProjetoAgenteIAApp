@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { BrainCircuit } from 'lucide-react';
+import { Lock, Cpu, BrainCircuit as Circuit, Sparkles } from 'lucide-react';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -103,7 +103,11 @@ const Login: React.FC = () => {
       >
         <div className="flex flex-col items-center mb-8">
           <div className="relative">
-            <BrainCircuit className="w-12 h-12 text-tech-purple animate-pulse" />
+            <div className="absolute inset-0 animate-pulse">
+              <Cpu className="w-12 h-12 text-tech-cyan opacity-50" />
+            </div>
+            <Circuit className="w-12 h-12 text-tech-purple" />
+            <Sparkles className="absolute -right-4 -top-2 w-6 h-6 text-tech-gold" />
           </div>
           <h2 className="text-2xl font-bold text-center text-white mt-4">
             Central de Agentes IA
