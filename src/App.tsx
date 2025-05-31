@@ -44,7 +44,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/app" element={<Dashboard />} />
         <Route path="/exclusive" element={<ExclusiveModules />} />
-        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="/" element={<Navigate to="/login\" replace />} />
       </Routes>
     </Router>
   );
