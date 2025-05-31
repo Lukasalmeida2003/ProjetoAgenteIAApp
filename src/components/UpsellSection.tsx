@@ -97,7 +97,7 @@ const UpsellSection: React.FC = () => {
           imageUrl="https://i.imgur.com/H6rPgvC.png"
           buttonText="Adicionar ao meu acesso"
           icon={<Users className="w-6 h-6" />}
-          link="#"
+          link="https://frabjous-biscotti-65d9b3.netlify.app/login/"
         />
       </div>
     </div>
