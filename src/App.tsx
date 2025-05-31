@@ -9,7 +9,6 @@ import Navigation from './components/Navigation';
 import UpsellSection from './components/UpsellSection';
 import Footer from './components/Footer';
 import Login from './pages/Login';
-import ExtraAgents from './pages/ExtraAgents';
 
 const Dashboard = () => {
   useEffect(() => {
@@ -43,8 +42,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/app" element={<Dashboard />} />
-        <Route path="/extra" element={<ExtraAgents />} />
-        <Route path="/" element={<Navigate to="/login\" replace />} />
+        <Route path="/" element={<Navigate to="/login" replace />} />
       </Routes>
     </Router>
   );
