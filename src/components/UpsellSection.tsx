@@ -89,7 +89,7 @@ const UpsellSection: React.FC = () => {
           imageUrl="https://i.imgur.com/ntajpxm.jpeg"
           buttonText="Quero esse pack"
           icon={<Sparkles className="w-6 h-6" />}
-          link="#"
+          link="https://go.disruptybr.shop/vvj6clanh0"
         />
         <UpsellCard
           title="PACK EXTRA COM 10 AGENTES AVANÇADOS"
