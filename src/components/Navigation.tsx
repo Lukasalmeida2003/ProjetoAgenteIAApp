@@ -1,26 +1,39 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Info, Star, RefreshCw, HelpCircle } from 'lucide-react';
+import { Info, Star, RefreshCw, HelpCircle, Lock } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface NavItem {
   id: string;
   label: string;
   icon: React.ReactNode;
+  action?: () => void;
 }
-
-const navItems: NavItem[] = [
-  { id: 'how-to-use', label: 'Como Usar', icon: <Info className="w-4 h-4" /> },
-  { id: 'recommendations', label: 'Recomendações', icon: <Star className="w-4 h-4" /> },
-  { id: 'updates', label: 'Atualizações', icon: <RefreshCw className="w-4 h-4" /> },
-  { id: 'faq', label: 'FAQ', icon: <HelpCircle className="w-4 h-4" /> },
-];
 
 const Navigation: React.FC = () => {
   const [activeItem, setActiveItem] = useState('');
+  const navigate = useNavigate();
 
-  const handleClick = (id: string) => {
-    setActiveItem(id);
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  const navItems: NavItem[] = [
+    { id: 'how-to-use', label: 'Como Usar', icon: <Info className="w-4 h-4" /> },
+    { id: 'recommendations', label: 'Recomendações', icon: <Star className="w-4 h-4" /> },
+    { id: 'updates', label: 'Atualizações', icon: <RefreshCw className="w-4 h-4" /> },
+    { id: 'faq', label: 'FAQ', icon: <HelpCircle className="w-4 h-4" /> },
+    { 
+      id: 'extra', 
+      label: 'Agentes Extra', 
+      icon: <Lock className="w-4 h-4" />,
+      action: () => navigate('/extra')
+    },
+  ];
+
+  const handleClick = (item: NavItem) => {
+    setActiveItem(item.id);
+    if (item.action) {
+      item.action();
+    } else {
+      document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -34,7 +47,7 @@ const Navigation: React.FC = () => {
         {navItems.map((item) => (
           <button
             key={item.id}
-            onClick={() => handleClick(item.id)}
+            onClick={() => handleClick(item)}
             className={`p-2 rounded-full transition-all duration-300 ${
               activeItem === item.id
                 ? 'bg-tech-cyan text-black'
