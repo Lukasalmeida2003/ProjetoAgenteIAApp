@@ -9,8 +9,6 @@ import Navigation from './components/Navigation';
 import UpsellSection from './components/UpsellSection';
 import Footer from './components/Footer';
 import Login from './pages/Login';
-import PremiumLogin from './pages/PremiumLogin';
-import Premium from './pages/Premium';
 
 const Dashboard = () => {
   useEffect(() => {
@@ -43,10 +41,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/premium-login" element={<PremiumLogin />} />
-        <Route path="/premium" element={<Premium />} />
         <Route path="/app" element={<Dashboard />} />
-        <Route path="/" element={<Navigate to="/login\" replace />} />
+        <Route path="/" element={<Navigate to="/login" replace />} />
       </Routes>
     </Router>
   );
