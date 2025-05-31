@@ -46,7 +46,7 @@ function App() {
         <Route path="/premium-login" element={<PremiumLogin />} />
         <Route path="/premium" element={<Premium />} />
         <Route path="/app" element={<Dashboard />} />
-        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="/" element={<Navigate to="/login\" replace />} />
       </Routes>
     </Router>
   );
